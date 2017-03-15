@@ -9,6 +9,9 @@ public class MapGenerator : MonoBehaviour {
 
 	public Transform tilePrefab;
 	public Transform obstaclePrefab;
+
+	public Transform[] obstaclePrefabsList;
+
 	public Transform mapFloor;
 	public Transform NavmeshFloor;
 	public Transform NavMeshMaskPrefab;
@@ -88,8 +91,13 @@ public class MapGenerator : MonoBehaviour {
 			if (randomCoord != currentMap.mapCenter && MapIsFullyAccessible(obstacleMap, currentObstacleCount)) {
 				float  obstacleHeight = Mathf.Lerp(currentMap.minObstacleHeight, currentMap.maxObstacleHeight, (float)prng.NextDouble());
 				Vector3 obstaclePosition = CoordToPosition(randomCoord.x,randomCoord.y);
-				
-				Transform newObstacle = Instantiate(obstaclePrefab, obstaclePosition + Vector3.up * obstacleHeight/2, Quaternion.identity) as Transform;
+
+				Transform obstacleToSpawn;
+
+				obstacleToSpawn = obstaclePrefabsList [Random.Range (0, obstaclePrefabsList.Length - 1)];
+				Debug.Log (obstacleToSpawn);
+
+				Transform newObstacle = Instantiate(obstacleToSpawn, obstaclePosition + Vector3.up * obstacleHeight/2, Quaternion.identity) as Transform;
 				newObstacle.parent = mapHolder;
 				newObstacle.localScale =  new Vector3 ((1 - outlinePercent) * tileSize, obstacleHeight, (1 - outlinePercent) * tileSize);
 
