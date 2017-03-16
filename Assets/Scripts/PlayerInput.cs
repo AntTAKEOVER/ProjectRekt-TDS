@@ -48,8 +48,9 @@ public class PlayerInput : LivingEntity {
 			controller.LookAt(point);
 			crosshair.transform.position = point;
 			crosshair.DetectTargets(ray);
-		//	gunController.Aim (point);
-			//Debug.Log((new Vector2(point.x, point.z) - new Vector2(transform.position.x, transform.position.z)).magnitude);
+	 		
+			if((new Vector2(point.x, point.z) - new Vector2(transform.position.x, transform.position.z)).sqrMagnitude > 2.25f)
+				gunController.Aim (point);
 		}
 
 		//WeaponInput
@@ -65,6 +66,10 @@ public class PlayerInput : LivingEntity {
 			
 			gunController.OntriggerRelease();
 			
+		}
+
+		if (Input.GetKeyDown (KeyCode.R)) {
+			gunController.Reload ();
 		}
 	}
 }
