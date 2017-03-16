@@ -576,6 +576,8 @@ MonoBehaviour:
   burstCount: 3
   shell: {fileID: 434386, guid: 53b24a17b218c4136974f41dd074993f, type: 2}
   shellEjection: {fileID: 457972}
+  shootAudio: {fileID: 8300000, guid: f3eac08f799154355962cb4892ba8bab, type: 3}
+  reloadAuido: {fileID: 8300000, guid: 85bab3d5eefa94fa2bac3eef6e0a86bd, type: 3}
 --- !u!212 &21252562
 SpriteRenderer:
   m_ObjectHideFlags: 1

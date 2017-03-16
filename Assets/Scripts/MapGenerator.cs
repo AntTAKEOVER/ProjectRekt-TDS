@@ -8,7 +8,7 @@ public class MapGenerator : MonoBehaviour {
 	public int mapIndex;
 
 	public Transform tilePrefab;
-	public Transform obstaclePrefab;
+	//public Transform obstaclePrefab;
 
 	public Transform[] obstaclePrefabsList;
 
@@ -94,8 +94,8 @@ public class MapGenerator : MonoBehaviour {
 
 				Transform obstacleToSpawn;
 
-				obstacleToSpawn = obstaclePrefabsList [Random.Range (0, obstaclePrefabsList.Length - 1)];
-				Debug.Log (obstacleToSpawn);
+				obstacleToSpawn = obstaclePrefabsList [Random.Range (0, obstaclePrefabsList.Length)];
+			//	Debug.Log (obstacleToSpawn);
 
 				Transform newObstacle = Instantiate(obstacleToSpawn, obstaclePosition + Vector3.up * obstacleHeight/2, Quaternion.identity) as Transform;
 				newObstacle.parent = mapHolder;
@@ -103,11 +103,11 @@ public class MapGenerator : MonoBehaviour {
 
 				//Start obstacle color stuff
 				//Renderer obstacleRenderer = newObstacle.GetComponent<Renderer>();
-				Renderer obstacleRenderer = newObstacle.GetComponentInChildren<Renderer>();
-				Material obstacleMaterial = new Material(obstacleRenderer.sharedMaterial);
-				float colorPercent = randomCoord.y/ (float)currentMap.mapSize.y;
-				obstacleMaterial.color = Color.Lerp(currentMap.foregroundColor, currentMap.bgColor, colorPercent);
-				obstacleRenderer.sharedMaterial = obstacleMaterial;
+			//	Renderer obstacleRenderer = newObstacle.GetComponentInChildren<Renderer>();
+			//	Material obstacleMaterial = new Material(obstacleRenderer.sharedMaterial);
+			//	float colorPercent = randomCoord.y/ (float)currentMap.mapSize.y;
+			//	obstacleMaterial.color = Color.Lerp(currentMap.foregroundColor, currentMap.bgColor, colorPercent);
+			//	obstacleRenderer.sharedMaterial = obstacleMaterial;
 
 				//End obstacle color stuff
 
@@ -231,8 +231,7 @@ public class MapGenerator : MonoBehaviour {
 			public int seed;
 			public float minObstacleHeight;
 			public float maxObstacleHeight;
-			public Color foregroundColor;
-			public Color bgColor;
+			
 
 			public Coord mapCenter{
 				get{

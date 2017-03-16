@@ -16,6 +16,8 @@ public class Gun : MonoBehaviour {
 
 	public Transform shell;
 	public Transform shellEjection;
+	public AudioClip shootAudio;
+	public AudioClip reloadAuido;
 	float nextShotTime;
 	bool isBurstTriggered;
 
@@ -58,7 +60,7 @@ public class Gun : MonoBehaviour {
 
 			Instantiate(shell, shellEjection.position, shellEjection.rotation);
 			
-
+			AudioManager.instance.PlaySouns (shootAudio, transform.position);
 		}
 	}
 
