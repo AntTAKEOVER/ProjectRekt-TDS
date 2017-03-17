@@ -20,11 +20,18 @@ public class PlayerInput : LivingEntity {
 	protected override void Start () {
 
 		base.Start ();
+	}
+
+	void Awake(){
 		controller = GetComponent<PlayerController>();
 		viewCamera = Camera.main;
 		gunController = GetComponent<GunController>();
+		FindObjectOfType<Spawner> ().OnNewWave += OnNewWave;
+	}
 
-
+	void OnNewWave(int waveNumber){
+		health = startingHealth;
+		gunController.EquipGun (waveNumber - 1);
 	}
 	
 	// Update is called onceper frame

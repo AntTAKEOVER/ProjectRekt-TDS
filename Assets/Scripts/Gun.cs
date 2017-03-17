@@ -108,7 +108,7 @@ public class Gun : MonoBehaviour {
 		if (!isReloading && projectilesRemainingInMag != projectilesPerMag) 
 			StartCoroutine (AnimateReload());
 	}
-		
+		 
 	IEnumerator AnimateReload(){
 		isReloading = true;
 		yield return new WaitForSeconds (0.2f);
