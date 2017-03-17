@@ -22,12 +22,8 @@ public class PlayerController : MonoBehaviour {
 
 	 void FixedUpdate(){
 
-	
 			myRigidbody.MovePosition(myRigidbody.position + velocity * Time.deltaTime);
 
-		
-	
-		
 	}
 
 	public void LookAt(Vector3 lookPoint){
